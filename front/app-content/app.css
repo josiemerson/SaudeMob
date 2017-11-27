@@ -1,0 +1,29 @@
+a {
+    cursor: pointer;
+}
+
+/*.logo {
+    padding-left: 550px;
+}
+
+.login-form {
+    padding-left: 400px;
+}
+
+.login-form > button {
+    padding-left: 600px;
+}*/
+.jumbotron {
+    width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.body{
+    /*background-color: lightblue;*/
+    background: url("../img/tecnologia2.png") left top no-repeat fixed;
+}
+.logo-neppo{
+    background: url("../img/tecnologia2.png") left top no-repeat fixed;
+}

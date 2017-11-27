@@ -1,0 +1,53 @@
+﻿<div class="jumbotron">
+    <h2>Cadastro</h2>
+    <div class="container">
+        <!--div class="login-form"-->
+        <!--div class="form-control"-->
+        <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+        <div class="col-md-12 col-md-offset-3">
+            <hr/>
+            <form name="form" ng-submit="vm.register()" role="form">
+                <!--NOME COMPLETO-->
+                <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+                    <input type="text" name="name" id="name" class="form-control" ng-model="vm.user.name" required placeholder="Nome completo" />
+                    <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Digite o nome completo</span>
+                </div>
+                <!--DATA NASCIMENTO-->
+                <div class="form-group" ng-class="{ 'has-error': form.birthdate.$dirty && form.birthdate.$error.required }">
+                    <input type="date" name="birthdate" id="birthdate" class="form-control" ng-model="vm.user.birthDate" required placeholder="Data de nascimento" />
+                    <span ng-show="form.birthdate.$dirty && form.birthdate.$error.required" class="help-block">Digite a data de nascimento</span>
+                </div>
+                <!--EMAIL-->
+                <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                    <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required placeholder="Email" />
+                    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Digite o email</span>
+                </div>
+                <!--SENHA-->
+                <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password" required placeholder="Senha" />
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Digite a senha</span>
+                </div>
+                <!--OPCAO-->
+                <div class="form-group">
+                    <input type="office" name="office" id="office" class="form-control" ng-model="vm.user.office" required placeholder="digite profissao" />
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.office.$dirty && form.office.$error.required }">
+                    <input type="text" name="location" id="location" class="form-control" ng-model="vm.user.ad" required placeholder="Local de Atendimento" />
+                    <span ng-show="form.office.$dirty && form.office.$error.required" class="help-block">Local Atendimento</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Cadastrar</button>
+                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                    />
+                    <br>
+                    Ja se cadastrou?
+                    <a href="#!/login" class="btn btn-link">Login</a>
+
+                </div>
+            </form>
+        </div>
+        <!--/div>
+    <!--/div-->
+    </div>
+</div>
+</div>
