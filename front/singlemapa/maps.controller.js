@@ -6,13 +6,12 @@ MapsController.$inject = ['$scope', 'UserService'];
     function MapsController( $scope, UserService){
         var self = this;
 
-        self.initMap = initMap;
-        self.tracarRota = tracarRota;
+        self.refreshMarkersInMap = refreshMarkersInMap;
+		self.tracarRota = tracarRota;
+		self.map;
 
         var myPosition = null;
 		var markers = [];
-
-		// initMap();
 
 		function getImagem(isMedico){
 			var image = {
@@ -85,42 +84,46 @@ MapsController.$inject = ['$scope', 'UserService'];
 		}
 
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14
-        });
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 14
+			});
 
-		if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            myPosition = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+			self.map = map;
 
-			map.setCenter(myPosition);
-			
-			var image = getImagem(false);
-			var my = {	location : myPosition
-						,name : "Josiemerson"
-						//,image : image
-					};
-
-			addCommonMarker(my, map);		
-          }, function() {
-            handleLocationError(true);
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false);
+			refreshMarkersInMap()
 		}
 
-		UserService.GetAllMedicals(function callback(response){
-			if (response.status == 200) {
-				addMarker(getPosition(response.data), map);
+		function refreshMarkersInMap(){
+			var map = self.map;
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					myPosition = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+
+					map.setCenter(myPosition);
+
+					var image = getImagem(false);
+					var my = {	location : myPosition };
+
+					markers[markers.length + 1] = addCommonMarker(my, map);		
+				}, function() {
+					handleLocationError(true);
+				});
 			} else {
-				FlashService.Error(response.message);
-				vm.dataLoading = false;
+				handleLocationError(false);
 			}
-		});
+
+			UserService.GetAllMedicals(function callback(response){
+				if (response.status == 200) {
+					addMarker(getPosition(response.data), map);
+				} else {
+					FlashService.Error(response.message);
+					vm.dataLoading = false;
+				}
+			});
 		}
 
 		function addMarker(markersResponse, map){
@@ -171,8 +174,10 @@ MapsController.$inject = ['$scope', 'UserService'];
 			var objectMarker = {
 				  position: item.location,
 				  map: map,
-				  title: (typeof item.especialty == "undefined" ? item.name : 'Dr(a): ' + item.name + ', Especialidade: ' + item.especialty) + '',
-				};
+				  title: (typeof item.especialty == "undefined" ? 
+							  (typeof item.name == "undefined" ? "" : item.name) : 
+							  	'Dr(a): ' + item.name + ', Especialidade: ' + item.especialty) + '',
+			};
 
 			if(typeof item.image != "undefined"){
 				objectMarker.icon = item.image;
@@ -180,7 +185,7 @@ MapsController.$inject = ['$scope', 'UserService'];
 
 			var marker = new google.maps.Marker(objectMarker);
 
-				return marker;
+			return marker;
 		}
 
 		function removeMarkers(){
