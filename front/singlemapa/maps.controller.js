@@ -13,6 +13,36 @@ MapsController.$inject = ['$scope', 'UserService'];
 
         var myPosition = null;
 		var markers = [];
+		var directionsDisplay = null;
+
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 14
+			});
+
+			self.map = map;
+
+			refreshMarkersInMap();
+		}
+
+		function refresh(){
+			markers = [];
+
+			cleanRotesInMap();
+
+			self.map.setZoom(14);
+
+			removeMarkers();
+
+			refreshMarkersInMap();			
+		}
+
+		function cleanRotesInMap(){
+			if(typeof directionsDisplay != "undefined"){
+				directionsDisplay.setDirections(null)
+				directionsDisplay.setMap(null);
+			}
+		}
 
 		function getImagem(isMedico){
 			var image = {
@@ -82,24 +112,6 @@ MapsController.$inject = ['$scope', 'UserService'];
 					});
 
 			return response;
-		}
-
-      function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 14
-			});
-
-			self.map = map;
-
-			refreshMarkersInMap();
-		}
-
-		function refresh(){
-			markers = [];
-
-			removeMarkers();
-
-			refreshMarkersInMap();			
 		}
 
 		function refreshMarkersInMap(){
@@ -202,9 +214,9 @@ MapsController.$inject = ['$scope', 'UserService'];
 		}
 
 		function setMapOnAll(map) {
-			for (var i = 0; i < markers.length; i++) {
-			  markers[i].setMap(map);
-			}
+			markers.forEach(function(marker, index){
+				marker.setMap(map);
+			});
 		}
 
 		function dadosRota(origin, map, marker){
@@ -216,7 +228,7 @@ MapsController.$inject = ['$scope', 'UserService'];
 		function tracarRota(dadosRota){
 			removeMarkers();
 
-			var directionsDisplay = new google.maps.DirectionsRenderer();
+			directionsDisplay = new google.maps.DirectionsRenderer();
 			var directionsService = new google.maps.DirectionsService;
 
 			var request = {
