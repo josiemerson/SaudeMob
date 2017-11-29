@@ -6,7 +6,8 @@ MapsController.$inject = ['$scope', 'UserService'];
     function MapsController( $scope, UserService){
         var self = this;
 
-        self.refreshMarkersInMap = refreshMarkersInMap;
+		self.initMap = initMap;
+        self.refresh = refresh;
 		self.tracarRota = tracarRota;
 		self.map;
 
@@ -90,7 +91,15 @@ MapsController.$inject = ['$scope', 'UserService'];
 
 			self.map = map;
 
-			refreshMarkersInMap()
+			refreshMarkersInMap();
+		}
+
+		function refresh(){
+			markers = [];
+
+			removeMarkers();
+
+			refreshMarkersInMap();			
 		}
 
 		function refreshMarkersInMap(){
