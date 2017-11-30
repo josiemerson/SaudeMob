@@ -44,6 +44,22 @@
             return $http.get('http://localhost:8081/users.json' + email).then(handleSuccess, handleError('Error getting user by email'));
         }
 
+        function GetByUserPerEmail(email) {
+            return $http.post('http://localhost:8080/user/email' + email).then(function successCallback(response) {
+                //console.log(response);
+                if (response.status == 200) {
+                    response = { user: response.data , success: true };
+                }
+                callback(response);  
+            }, function errorCallback(response) {
+                //console.log(response);
+                if (response.status == 404) {
+                    response = { success: false, message: "Houve problema para buscar seus dados, entre em contato com 'Saude Mobile'"};
+                }
+                callback(response); 
+            });
+        }
+
         function Create(user, callback) {
             //FUNCIONA, MAS NÃO RETORNA ERROS NEM NADA, APENAS INSERE SE OK
             //return $http.post('http://localhost:8080/user/new', user).then(handleSuccess, handleError('Erro ao criar usuario'));

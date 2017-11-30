@@ -4,7 +4,7 @@
         <!--div class="login-form"-->
         <!--div class="form-control"-->
         <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-        <div class="col-md-12 col-md-offset-3">
+        <div class="col-md-12 col-md-offset-3" style="margin-left : 0">
             <hr/>
             <form name="form" ng-submit="vm.register()" role="form">
                 <!--NOME COMPLETO-->
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group" ng-class="{ 'has-error': form.office.$dirty && form.office.$error.required }">
                     <input type="text" name="location" id="location" class="form-control" ng-model="vm.user.address" required placeholder="Local de Atendimento" />
-                    <span ng-show="form.office.$dirty && form.office.$error.required" class="help-block">Local Atendimento</span>
+                    <span ng-show="form.office.$dirty && form.office.$error.required" class="help-block">Endereço atendimento</span>
                 </div>
                 <div class="form-actions">
                     <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Cadastrar</button>

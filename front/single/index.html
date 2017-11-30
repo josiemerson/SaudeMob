@@ -9,7 +9,10 @@
 <link rel="stylesheet" href="./css/fonts-google/Raleway.css">
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="./css/cdnjs-cloudflare/font-awesome.min.css">
-
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="./css/bootstrap.min.js"></script>
+<!--script src="./css/jquery.min.js"></script-->
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 #btn {
@@ -60,17 +63,31 @@ function espec(){
     </a>
     <img src="img/profile-perfil.png" style="width:45%;" class="w3-round"><br><br>
     <h4><b>Perfil <Mobile></Mobile></b></h4>
-    <p class="w3-text-grey">Editar Perfil</p>
   </div>
-  <div class="w3-bar-block">
-    <a href="#/single">HOME</a><br>
-    <a href="#/singleespec">ESPECIALIDADES</a><br>
-    <a href="#/singlemapa">MAPA</a><br>
-    <a href="#/login">SAIR</a><br>
-  </div>
+  <!--div class="w3-bar-block"-->
+<!-- Sidebar/menu -->
+  <nav class="navbar navbar-default sidebar" role="navigation">
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>      
+      </div>
+      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+          <li><a href="#/editPerfil">Editar perfil <span style="font-size:16px;" class="glyphicon glyphicon-wrench"/></a></li>
+          <li ><a href="#/singleespec">Especialidades<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+          <li ><a href="#/singlemapa">Especialitas<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-map-marker"></span></a></li>
+          <li ><a href="#/login">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <hr>
-</nav>
-
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 

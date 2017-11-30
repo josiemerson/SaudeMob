@@ -19,17 +19,17 @@
                 controller: 'RegisterController',
                 templateUrl: 'register/register.view.html',
                 controllerAs: 'vm'
-                        })
-
-
-
+            })
+            // .when('/editPerfil', {
+            //     controller: 'EditPerfilController',
+            //     templateUrl: 'editPerfil/editPerfil.view.html',
+            //     controllerAs: 'vm'
+            // })
             .when('/login', {
                 controller: 'LoginController',
                 templateUrl: 'login/login.view.html',
                 controllerAs: 'vm'
                         })
-
-
             .when('/single', {
                    templateUrl: 'single/index.html',
                    controllerAs: 'vm'
@@ -43,9 +43,6 @@
                    controller:  'MapsController',
                    controllerAs: 'vm'
                          })
-
-
-
             .otherwise({ redirectTo: '/login' });
     }
 
@@ -59,7 +56,7 @@
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/single', '/singleespec', '/singlemapa']) === -1;
+            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/single', '/singleespec', '/singlemapa', '/editPerfil']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $location.path('/home');

@@ -5,26 +5,13 @@
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<link rel="stylesheet" href="./css/w3css/w3.css">
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> -->
+<!--link rel="stylesheet" href="./css/w3css/w3.css">
 <link rel="stylesheet" href="./css/fonts-google/Raleway.css">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="./css/cdnjs-cloudflare/font-awesome.min.css">
-<link rel="stylesheet" href="./css/maxcdn/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-<!-- Latest compiled and minified CSS -->
-
-<!-- Optional theme -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-<link rel="stylesheet" href="./css/maxcdn/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-<script src="./css/maxcdn/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="./css/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./css/maxcdn/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"-->
 
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
@@ -47,13 +34,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </a>
     <img src="img/profile-perfil.png" style="width:45%;" class="w3-round"><br><br>
     <h4><b>Perfil <Mobile></Mobile></b></h4>
-    <p class="w3-text-grey">Editar Perfil</p>
   </div>
-  <div class="w3-bar-block">
-    <a href="#/single">HOME</a><br>
-    <a href="#/singleespec">ESPECIALIDADES</a><br>
-    <a href="#/singlemapa">MAPA</a><br>
-  </div>
+  <nav class="navbar navbar-default sidebar" role="navigation">
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>      
+      </div>
+      <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+              <li><a href="#/editPerfil">Editar perfil <span style="font-size:16px;" class="glyphicon glyphicon-wrench"/></a></li>
+              <li ><a href="#/singlemapa">Especialitas<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-map-marker"></span></a></li>
+              <li ><a href="#/login">Sair<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
+            </ul>    
+      </div>
+    </div>
+  </nav>
+
+  <!--ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><a href="#/single">HOME</a><br></li>
+      <li role="presentation"><a href="#/singleespec">ESPECIALIDADES</a><br></li>
+      <li role="presentation"><a href="#/singlemapa">MAPA</a><br></li>
+      <li role="presentation"><a href="#/login">SAIR</a><br></li>
+    </ul-->
   <hr>
 </nav>
 
